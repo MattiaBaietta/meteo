@@ -1,0 +1,5 @@
+npm i react-router-dom
+npm i bootstrap react-bootstrap
+npm install @mui/x-charts
+npm i @emotion/react
+npm i @emotion/styled
