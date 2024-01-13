@@ -3,6 +3,7 @@ import Mynav from "./Mynav"
 import { Container, Row, Col } from "react-bootstrap"
 import { icons } from "./Meteodaily"
 import { Cambiainunderscore } from "./Meteodaily"
+import { getCurrentHour } from "./Meteodaily"
 
 function Convertigiorno(n) {
     const dataString = n;
@@ -20,9 +21,12 @@ function Meteofuturo({ meteo }) {
             <Mynav />
             <Container className="text-white">
                 <Row className="fs-2 p-5 text-center align-items-center">
-                    <Col >
-                        <img src={icons[Cambiainunderscore(meteo.days[0].icon)]} alt="" />
-                        {meteo.resolvedAddress}
+                    <Col className="fs-4 d-flex align-items-center  justify-content-center " >
+                        <p className="align-items-center">
+                            <img src={icons[Cambiainunderscore(meteo.days[0].icon)]} alt="" />
+                            {meteo.resolvedAddress}
+                        </p>
+                        <p className="px-5">{meteo.days[0].hours[getCurrentHour()].temp}°C</p>
                     </Col>
                     
                 </Row>

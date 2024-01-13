@@ -62,12 +62,12 @@ export async function Stampameteo(city = "Rimini") {
         throw e;
     }
 }
-function Calchours(n1, n2) {
-    let calcolo = (n1 - n2)
-    let minutes = Math.floor(calcolo / 60) % 60;
-    let hours = Math.floor(calcolo / 3660);
-    return (hours + "Ore e " + minutes + "Minuti")
-}
+export function getCurrentHour() {
+    const currentTime = new Date();
+    const hours = currentTime.getHours();
+  
+    return hours;
+  }
 export function Cambiainunderscore(stringa) {
     return stringa.replace(/-/g, "_")
 }
@@ -129,9 +129,12 @@ function Meteodaily() {
                             <Row className=" align-items-center">
                                 <Col className=" m-3">
                                     <Row className="text-center align-items-center">
-                                        <Col className="fs-3" >
-                                            <img  src={icons[Cambiainunderscore(meteo.days[0].icon)]} alt="" />
-                                            {meteo.resolvedAddress}
+                                        <Col className="fs-4 d-flex justify-content-evenly align-items-center" >
+                                            <p>
+                                                <img  src={icons[Cambiainunderscore(meteo.days[0].icon)]} alt="" />
+                                                {meteo.resolvedAddress}
+                                            </p>
+                                            <p>{meteo.days[0].hours[getCurrentHour()].temp}°C</p>
                                         </Col>
                                     </Row>
                                     <Row className=" p-4">

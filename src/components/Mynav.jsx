@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 function Mynav() {
     const params = useParams()
-    if(params.city=="undefined")
+if(params.city==="undefined")
     {
         params.city="Rimini"
     }
